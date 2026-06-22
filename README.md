@@ -1,52 +1,97 @@
-# Cadastro de Alunos
+# 🎓 Sistema de Cadastro de Alunos
 
-Aplicação desenvolvida em Java para realizar o cadastro de alunos com persistência de dados em PostgreSQL. O projeto recebe as informações via console e armazena dados como nome, telefone, matrícula e data de nascimento no banco de dados.
+Aplicação desenvolvida em Java para cadastro de alunos com persistência de dados em banco PostgreSQL utilizando JDBC.
 
-## 🚀 Tecnologias utilizadas
-- Java
-- JDBC
-- PostgreSQL
+O sistema realiza a captura de informações pelo terminal e armazena os dados em uma tabela no banco de dados.
 
-## 📌 Funcionalidades
-- Cadastro de alunos via terminal
-- Captura de nome, telefone, matrícula e data de nascimento
-- Persistência dos dados no banco PostgreSQL
-- Organização do projeto em camadas
+## 🚀 Tecnologias Utilizadas
 
-## 🧱 Estrutura do projeto
-- `controllers` → responsável pelo fluxo da aplicação
-- `entities` → representa a entidade Aluno
-- `repositories` → responsável pela comunicação com o banco de dados
-- `factories` → responsável pela conexão com o PostgreSQL
-- `main` → ponto de entrada da aplicação
+* Java
+* JDBC
+* PostgreSQL
+* SQL
+* Programação Orientada a Objetos (POO)
 
-## 🎯 Objetivo do projeto
-Este projeto foi desenvolvido com o objetivo de praticar conceitos fundamentais de back-end com Java, como:
-- estruturação de aplicações em camadas
-- manipulação de entrada de dados via console
-- conexão com banco de dados relacional
-- persistência de dados com JDBC
+## 📋 Funcionalidades
 
-## ▶️ Como executar o projeto
-1. Clone este repositório:
-```bash
-git clone <PRIVATE_URL>
+* Cadastro de alunos
+* Armazenamento em banco de dados PostgreSQL
+* Conversão e validação de datas
+* Conexão com banco utilizando JDBC
+* Organização em camadas (Controller, Repository, Entity e Factory)
+
+## 🏗️ Estrutura do Projeto
+
+```text
+src
+│
+├── controllers
+│   └── AlunoController
+│
+├── entities
+│   └── Aluno
+│
+├── repositories
+│   └── AlunoRepository
+│
+└── factories
+    └── ConnectionFactory
 ```
 
-2. Abra o projeto em uma IDE Java
+## 📊 Modelo de Dados
 
-3. Configure a conexão com o PostgreSQL na classe responsável pela conexão com o banco
+A aplicação utiliza a tabela:
 
-4. Execute a classe principal do projeto
+```sql
+CREATE TABLE alunos(
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(150) NOT NULL,
+    telefone VARCHAR(20) NOT NULL,
+    matricula VARCHAR(10) NOT NULL,
+    data_nascimento DATE NOT NULL,
+    data_cadastro TIMESTAMP DEFAULT NOW()
+);
+```
 
-## 📚 Aprendizados
-Durante o desenvolvimento deste projeto, foram praticados:
-- criação de entidades em Java
-- separação de responsabilidades em camadas
-- conexão com banco PostgreSQL usando JDBC
-- inserção de dados no banco
-- organização de uma aplicação back-end simples
+## 🖥️ Funcionamento
 
-## 👩🏻‍💻 Autora
-Beatriz Lima  
-[GitHub](<PRIVATE_URL>)
+O usuário informa:
+
+* Nome
+* Telefone
+* Matrícula
+* Data de nascimento
+
+Após a validação dos dados, o sistema realiza a inserção do aluno no banco PostgreSQL.
+
+## ⚙️ Configuração do Banco
+
+Crie um banco de dados chamado:
+
+```text
+bdexercicio03
+```
+
+Configure as credenciais de conexão na classe:
+
+```java
+ConnectionFactory
+```
+
+## 🎯 Objetivo do Projeto
+
+Projeto desenvolvido para praticar:
+
+* Programação Orientada a Objetos
+* JDBC
+* Integração Java com PostgreSQL
+* Manipulação de datas
+* Estruturação de aplicações em camadas
+* Operações de persistência de dados
+
+## 👩‍💻 Desenvolvedora
+
+Beatriz Lima
+
+GitHub:
+https://github.com/beatrizlima-tech
