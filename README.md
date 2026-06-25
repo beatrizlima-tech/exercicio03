@@ -1,46 +1,87 @@
 # 🎓 Sistema de Cadastro de Alunos
 
-Aplicação desenvolvida em Java para cadastro de alunos com persistência de dados em banco PostgreSQL utilizando JDBC.
+![Java](https://img.shields.io/badge/Java-21-red?style=for-the-badge\&logo=openjdk)
+![JDBC](https://img.shields.io/badge/JDBC-Database-orange?style=for-the-badge)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue?style=for-the-badge\&logo=postgresql)
+![Build](https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge)
+![License](https://img.shields.io/badge/license-MIT-lightgrey?style=for-the-badge)
 
-O sistema realiza a captura de informações pelo terminal e armazena os dados em uma tabela no banco de dados.
+---
 
-## 🚀 Tecnologias Utilizadas
+# 📌 Sobre o projeto
 
-* Java
+O **Sistema de Cadastro de Alunos** é uma aplicação Java desenvolvida para registrar alunos em um banco de dados PostgreSQL utilizando **JDBC**.
+
+A aplicação realiza a captura dos dados pelo terminal, valida as informações fornecidas e realiza a persistência no banco de dados, aplicando conceitos fundamentais de Programação Orientada a Objetos, SQL e arquitetura em camadas.
+
+Este projeto foi desenvolvido como prática de integração entre aplicações Java e bancos de dados relacionais.
+
+---
+
+# 🚀 Funcionalidades
+
+* Cadastro de alunos
+* Persistência de dados em PostgreSQL
+* Conversão e validação de datas
+* Integração com JDBC
+* Organização em camadas
+* Entrada de dados pelo terminal
+
+---
+
+# 🧱 Tecnologias Utilizadas
+
+* Java 21
 * JDBC
 * PostgreSQL
 * SQL
+* Maven
 * Programação Orientada a Objetos (POO)
 
-## 📋 Funcionalidades
+---
 
-* Cadastro de alunos
-* Armazenamento em banco de dados PostgreSQL
-* Conversão e validação de datas
-* Conexão com banco utilizando JDBC
-* Organização em camadas (Controller, Repository, Entity e Factory)
-
-## 🏗️ Estrutura do Projeto
+# 🏗️ Estrutura do Projeto
 
 ```text
-src
-│
+src/
+
 ├── controllers
-│   └── AlunoController
-│
 ├── entities
-│   └── Aluno
-│
-├── repositories
-│   └── AlunoRepository
-│
-└── factories
-    └── ConnectionFactory
+├── factories
+└── repositories
 ```
 
-## 📊 Modelo de Dados
+---
 
-A aplicação utiliza a tabela:
+# 📊 Arquitetura
+
+```text
+Usuário
+    │
+    ▼
+Controller
+    │
+    ▼
+Repository
+    │
+    ▼
+JDBC
+    │
+    ▼
+PostgreSQL
+```
+
+---
+
+# 🗄️ Banco de Dados
+
+Banco utilizado:
+
+```text
+PostgreSQL
+```
+
+Tabela utilizada:
 
 ```sql
 CREATE TABLE alunos(
@@ -53,45 +94,84 @@ CREATE TABLE alunos(
 );
 ```
 
-## 🖥️ Funcionamento
+---
 
-O usuário informa:
+# ⚙️ Funcionamento
+
+Ao executar a aplicação, o usuário informa:
 
 * Nome
 * Telefone
 * Matrícula
 * Data de nascimento
 
-Após a validação dos dados, o sistema realiza a inserção do aluno no banco PostgreSQL.
+Após a validação dos dados, o sistema realiza o cadastro do aluno no banco de dados.
 
-## ⚙️ Configuração do Banco
+---
 
-Crie um banco de dados chamado:
+# ⚙️ Como Executar o Projeto
 
-```text
-bdexercicio03
+## 1. Clonar o repositório
+
+```bash
+git clone https://github.com/beatrizlima-tech/exercicio03.git
 ```
 
-Configure as credenciais de conexão na classe:
+---
 
-```java
-ConnectionFactory
+## 2. Criar o banco de dados
+
+```sql
+CREATE DATABASE bdexercicio03;
 ```
 
-## 🎯 Objetivo do Projeto
+Execute também o script de criação da tabela disponível no projeto.
 
-Projeto desenvolvido para praticar:
+---
 
-* Programação Orientada a Objetos
+## 3. Configurar a conexão
+
+Atualize as credenciais de acesso ao banco na classe **ConnectionFactory**.
+
+---
+
+## 4. Executar a aplicação
+
+Abra o projeto em uma IDE Java (IntelliJ IDEA, Eclipse ou VS Code) e execute a classe principal.
+
+---
+
+# 📚 Conceitos Aplicados
+
+* Programação Orientada a Objetos (POO)
 * JDBC
-* Integração Java com PostgreSQL
+* PostgreSQL
+* SQL
+* CRUD (Create)
 * Manipulação de datas
-* Estruturação de aplicações em camadas
-* Operações de persistência de dados
+* Repository Pattern
+* Organização em camadas
+* Persistência de dados
 
-## 👩‍💻 Desenvolvedora
+---
 
-Beatriz Lima
+# 📌 Melhorias Futuras
 
-GitHub:
+* Implementar consulta de alunos
+* Atualizar dados cadastrais
+* Excluir registros
+* Adicionar validações mais robustas
+* Migrar para Spring Boot e Spring Data JPA
+* Criar testes automatizados
+
+---
+
+# 👩‍💻 Autora
+
+Desenvolvido por **Beatriz Lima**
+
+🔗 GitHub
 https://github.com/beatrizlima-tech
+
+💼 LinkedIn
+https://www.linkedin.com/in/beatrizlima-tech
